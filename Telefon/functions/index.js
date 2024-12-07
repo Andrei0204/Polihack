@@ -16,7 +16,7 @@ exports.helloWorld = functions.https.onRequest(async (request, response) => {
         {apiVersion: '2024-11-20.acacia'}
     );
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: amount,
+        amount: amount*100,
         currency: 'ron',
         customer: customer.id,
         // In the latest version of the API, specifying the `automatic_payment_methods` parameter

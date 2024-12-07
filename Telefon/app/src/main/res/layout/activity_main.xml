@@ -7,59 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/amountEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="224dp"
-        android:hint="enter amount to pay"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/stripeButton"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay with Stripe!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="51dp"
-        android:padding="16dp"
-        android:text="Waiting for RFID data..."
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSendZero"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSendOne"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="47dp"
-        android:text="Send 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSendZero"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:text="Send 0"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSendOne"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/emailField"

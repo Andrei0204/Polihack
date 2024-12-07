@@ -3,6 +3,7 @@ package com.example.telefonapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -29,6 +30,24 @@ public class SecondActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_second);
         Button logout = findViewById(R.id.logout);
+
+        Button ButonA1 = findViewById(R.id.ButonA1);
+        Button ButonB2 = findViewById(R.id.ButonB2);
+
+        ButonA1.setOnClickListener(v -> {
+            Intent intent = new Intent(SecondActivity.this, PayActivity.class);
+            intent.putExtra("Marker", "A1"); // Add data
+            startActivity(intent);
+            finish();
+        });
+
+        ButonB2.setOnClickListener(v -> {
+            Intent intent = new Intent(SecondActivity.this, PayActivity.class);
+            intent.putExtra("Marker", "B2"); // Add data
+            startActivity(intent);
+            finish();
+        });
+
         logout.setOnClickListener(v -> {
             signOut();
         });

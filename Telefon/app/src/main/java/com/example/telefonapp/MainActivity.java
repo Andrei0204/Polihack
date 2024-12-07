@@ -118,11 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             setContentView(R.layout.activity_main);
-            stripeButton = findViewById(R.id.stripeButton);
-            amountEditText = findViewById(R.id.amountEditText);
-            textView = findViewById(R.id.textView);
-            buttonSendOne = findViewById(R.id.buttonSendOne);
-            buttonSendZero = findViewById(R.id.buttonSendZero);
             EditText emailField = findViewById(R.id.emailField);
             EditText passwordField = findViewById(R.id.passwordField);
             Button signUpButton = findViewById(R.id.signUpButton);
@@ -140,17 +135,6 @@ public class MainActivity extends AppCompatActivity {
                 signIn(email, password);
             });
 
-            stripeButton.setOnClickListener(v -> {
-                if (TextUtils.isEmpty(amountEditText.getText().toString())) {
-                    Toast.makeText(this, "Amount cannot be empty ", Toast.LENGTH_SHORT).show();
-                } else {
-                    amount = amountEditText.getText().toString();
-                    getDetails();
-                }
-
-
-            });
-            paymentSheet = new PaymentSheet(this, this::onPaymentSheetResult);
         }
         else{
             startActivity(new Intent(MainActivity.this, SecondActivity.class));
@@ -261,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         user.put("userName", userName);
         user.put("userEmail", userEmail);
         user.put("Tokens", 0);
-        user.put("Dizabilitati", 1);
+        user.put("Dizabilitati", 0);
 
         db.collection("users").document(userId)
                 .set(user)

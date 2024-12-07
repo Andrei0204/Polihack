@@ -22,7 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TelefonApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".BluetoothScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Payscreen"
+            android:exported="false" />
+        <activity
+            android:name=".PayActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -37,7 +45,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAouCWAPJRN4Urk0JLFmx-Sth7DcTCBgic" />
-
 
         <activity
             android:name=".SecondActivity"
