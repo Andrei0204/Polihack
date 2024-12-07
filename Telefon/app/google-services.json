@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "743212779280",
+    "project_id": "polihack-2ede7",
+    "storage_bucket": "polihack-2ede7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743212779280:android:763fb26703e14423b48795",
+        "android_client_info": {
+          "package_name": "com.example.telefonapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAouCWAPJRN4Urk0JLFmx-Sth7DcTCBgic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743212779280:android:bd659f2fb320af49b48795",
+        "android_client_info": {
+          "package_name": "com.starlight.polihack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAouCWAPJRN4Urk0JLFmx-Sth7DcTCBgic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

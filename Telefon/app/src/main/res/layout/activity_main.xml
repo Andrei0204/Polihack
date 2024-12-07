@@ -3,7 +3,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:name=".MainAcitivity"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -12,4 +14,49 @@
         android:text="Waiting for RFID data..."
         android:textSize="18sp"
         android:padding="16dp" />
+
+    <Button
+        android:id="@+id/buttonSendOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send 1"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonSendZero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send 0"
+        android:layout_marginTop="8dp" />
+    <com.google.android.gms.wallet.button.PayButton
+        android:id="@+id/googlePayButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/emailField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In" />
+
 </LinearLayout>
