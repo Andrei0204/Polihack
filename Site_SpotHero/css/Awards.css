@@ -1,0 +1,172 @@
+.sec-1-a{
+    height: 90vh;
+    width: 100vw;
+    background-color: var(--gri);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+
+    form input  {
+      width: 75%;
+      outline: none;
+      border: 1px solid #fff;
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      background-color: #fff ;
+
+     
+  }
+  button{
+    font-size: 1.3rem;
+    margin-top: 1.8rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 20%;
+    color:#fff;
+    cursor: pointer;
+    background: #FF8200;
+    }
+  .sec-2-a{
+    height: auto;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 15vh;
+    position: relative;
+    padding-bottom: 15vh;
+  }
+  .spacer{
+    height: 0;
+  }
+  .imgc{
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .row-season{
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+  }
+  .row-season img{
+    height: 35vh;
+    width: auto;
+  }
+  .row-awards{
+    height: 35vh;
+    width: 60vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2vw;
+    position: relative;
+    background-color: aqua;
+    border-radius: 18vh 0 0 18vh;
+
+  }  .award{
+    height: 30vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  .award img{
+    height: 15vh;
+    width: auto;
+  }
+
+  .txt-medium1{
+    font-size: 1.3vw ;
+    font-weight: 400;
+    text-align: center;
+    z-index: 2;
+  
+  
+
+  }
+  @media (max-width:640px){
+    .txt-big1{
+      font-size: 2rem ;
+      font-weight: 1000;
+      text-align: center;
+      z-index: 2;
+      
+      }
+      .txt-box1{
+        margin:0;
+        margin-top:0;
+        margin-bottom: 0;
+        z-index: 2;
+      }
+      .txt-medium1{
+        font-size: 1rem ;
+        font-weight: 400;
+        text-align: center;
+        z-index: 2;
+      
+      }
+      .txt-small1{
+        font-size: 0.8rem;
+        font-weight: 300;
+        text-align: center;
+        z-index: 2;
+      }
+      .award{
+        height: 30vh;
+        width: 15vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+      .award img{
+        height: 20vh;
+        width: auto;
+      }
+    .award img{
+      height: 20vh;
+      width: auto;
+    }
+    .imgc{
+      width: 30vw;
+    }
+    .row-season img{
+      height: 20vh;
+      width: auto;
+    }
+    .row-awards{
+      
+      height: 35vh;
+      width: 80vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5vw;
+      position: relative;
+      background-color: aqua;
+      border-radius: 18vh 0 0 18vh;
+      
+      
+    
+      } 
+    }
+  }

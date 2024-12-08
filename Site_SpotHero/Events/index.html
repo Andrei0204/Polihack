@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../Imagini_Videos/StarLightlogo.png">
+    <link rel="stylesheet" href="../css/Default.css" />
+    <link rel="stylesheet" href="../css/Events.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <title>SpotHero</title>
+</head>
+
+<body>
+    <div class="nav-bar" id="navbar">
+        <div class="logo-nav">
+            <img src="../Imagini_Videos/Logonegru.png" alt="logo">
+        </div>
+        <div class="links">
+            <div class="elements-nav"><a href="../">Home</a></div>
+            <div class="elements-nav"><a href="../Our_Team">Our Team</a></div>
+            <div class="elements-nav"><a href="../Awards">Log in</a></div>
+            <div class="elements-nav"><a href="">Map</a></div>
+            <div class="elements-nav"><a href="../Sponsors">Parteners</a></div>
+            <div class="elements-nav"><a href="../Contact">Contact</a></div>
+        </div>
+        <div class="hamburger" onclick="hamburger()"> <img src="../Imagini_Videos/hamburger-menu.svg"></div>
+    </div>
+    <div class="sec-1-e">
+        <img class="element-up" src="../Imagini_Videos/hatz.svg" alt="element"
+            style="height: auto; width: 50vw; position: absolute; left: 40px; top: 3vw;">
+        <img class="element-up" src="../Imagini_Videos/stea.png" alt="element"
+            style="height: auto; width: 50vw; position: absolute; right: -8vw; top: -10vw;">
+        <div class="txt-big txt-white title1"><br/><br/>Map</div>
+        <div class="txt-box">
+            <div class="txt-medium txt-white title2">Select a spot where you want to park. </div>
+        </div>
+    </div>
+    <div class="sec-2-e">
+        <div class="map-container">
+            <img src="..\Imagini_Videos\mapabun.png" alt="Harta" />
+            <a href="https://www.google.com/maps/place/Muzeul+Etnografic+al+Transilvaniei/@46.7687025,23.5873516,16.92z/data=!4m6!3m5!1s0x47490e9d283e04d7:0xd983f4088bdb6115!8m2!3d46.7692416!4d23.5866757!16s%2Fm%2F0fq1_r3?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D"><button id="button1" class="map-button"> Button </button></a>
+            <a href="https://www.google.com/maps/place/Spitalul+Militar+de+Urgen%C8%9B%C4%83+Dr.Constantin+Papilian/@46.7694008,23.6025237,16z/data=!4m6!3m5!1s0x47490c24f4661f99:0x774e667237cbdc4a!8m2!3d46.769742!4d23.6027673!16s%2Fg%2F1tzlxrbc?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D"><button id="button2" class="map-button"> Button 2 </button></a>
+        </div>
+        </div>
+        
+    <div class="footer">
+        <img src="../Imagini_Videos/StarLightlogo.png" class="logo-footer">
+        <a href="mailto: starlight24909@gmail.com"><svg height="7vh" fill="#3455eb" version="1.1" id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 75.294 75.294"
+            xml:space="preserve" stroke="#3455eb">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <path
+                  d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z">
+                </path>
+              </g>
+            </g>
+          </svg></a>
+        <a href="https://www.instagram.com/starlightrobotics/" target="_blank">
+          <svg class="social_media" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 9.93 9.95">
+            <path
+              d="M4.89,472.45A2.55,2.55,0,1,0,7.43,475,2.55,2.55,0,0,0,4.89,472.45Zm0,4.21A1.66,1.66,0,1,1,6.54,475a1.67,1.67,0,0,1-1.65,1.66Zm3.24-4.32a.59.59,0,0,1-.59.6.6.6,0,0,1-.6-.6.59.59,0,0,1,.6-.59A.58.58,0,0,1,8.13,472.34Zm1.69.61A2.94,2.94,0,0,0,9,470.86a2.94,2.94,0,0,0-2.07-.8c-.82-.05-3.28-.05-4.1,0a2.92,2.92,0,0,0-2.08.8,3,3,0,0,0-.8,2.08c0,.83,0,3.29,0,4.11a3,3,0,0,0,.8,2.09,3,3,0,0,0,2.08.8c.82.05,3.28.05,4.1,0a2.94,2.94,0,0,0,2.07-.8,3,3,0,0,0,.81-2.09c0-.82,0-3.28,0-4.1Zm-1.06,5a1.71,1.71,0,0,1-1,.95,10.86,10.86,0,0,1-2.92.2,10.93,10.93,0,0,1-2.93-.2,1.69,1.69,0,0,1-.94-.95,21.64,21.64,0,0,1,0-5.87,1.67,1.67,0,0,1,.94-.94,11,11,0,0,1,2.93-.2,10.86,10.86,0,0,1,2.92.2,1.69,1.69,0,0,1,1,.94A11,11,0,0,1,9,475,10.93,10.93,0,0,1,8.76,477.93Z"
+              transform="translate(0.07 -470.02)" />
+          </svg></a>
+        <a href="https://www.facebook.com/" target="_blank">
+          <svg class="social_media" xmlns="http://www.w3.org/2000/svg" height="1em"
+            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <style>
+              svg {
+                fill: #3455eb
+              }
+            </style>
+            <path
+              d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+          </svg></a>
+        <a target="_blank"
+          href="https://ro.linkedin.com/company/">
+          <svg class="social_media" xmlns="http://www.w3.org/2000/svg" height="1em"
+            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <style>
+              svg {
+                fill: #ffffff
+              }
+            </style>
+            <path
+              d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+          </svg></a>
+        <a href="https://www.youtube.com/channel/" target="_blank">
+          <svg class="social_media" xmlns="http://www.w3.org/2000/svg" height="1em"
+            viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <style>
+              svg {
+                fill: #ffffff
+              }
+            </style>
+            <path
+              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+          </svg></a>
+        <a href="https://www.tiktok.com/starlightrobotics" target="_blank">
+          <svg class="social_media" xmlns="http://www.w3.org/2000/svg" height="1em"
+            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <style>
+              svg {
+                fill: #ffffff
+              }
+            </style>
+            <path
+              d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+          </svg></a>
+        <a href="https://linktr.ee/starlight_24909" target="_blank">
+          <svg class="social_media" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 2452.78 2065.4">
+            <defs>
+              <style>
+                .cls-4 {
+                  fill: #fff;
+                }
+              </style>
+            </defs>
+            <path class="cls-4"
+              d="M935.68,74.42C894.3,0,786.78,0,745.43,74.42L34.06,1364.53c-33.1,66.16,16.53,140.58,91,140.58H604.79V1993c0,49.63,41.38,91,91,91H977c49.63,0,91-41.35,91-91V1505.11H935.68c-57.92,0-99.27-41.35-107.55-91,0-16.54,0-33.07,8.28-49.79l397.06-719.47Z"
+              transform="translate(-23.61 -18.6)" />
+            <path class="cls-4"
+              d="M1564.32,74.42C1605.7,0,1713.22,0,1754.57,74.42l711.37,1290.11c33.1,66.16-16.53,140.58-91,140.58h-471.5V1993c0,49.63-41.35,91-91.07,91h-297.7c-49.63,0-91-41.35-91-91V1505.11h132.36c57.88,0,99.23-41.35,107.52-91,0-16.54,0-33.07-8.29-49.79l-397-719.28Z"
+              transform="translate(-23.61 -18.6)" />
+          </svg></a>
+      </div>
+    <script>
+
+        let prevScrollpos = window.scrollY;
+        const nav = document.querySelector(".nav-bar");
+        window.addEventListener("scroll", () => {
+            if (prevScrollpos < window.scrollY) {
+                var links = document.querySelector(".links");
+                var width = window.matchMedia("(max-width: 700px)");
+        if ((width.matches))
+                links.style.display = "none";
+                nav.classList.add("nav-hidden");
+            } else {
+                nav.classList.remove("nav-hidden");
+            }
+            prevScrollpos = window.scrollY
+        });
+        function hamburger() {
+            var links = document.querySelector(".links");
+            if (links.style.display === "block") {
+                links.style.display = "none";
+            } else {
+                links.style.display = "block";
+            }
+        }
+        var tl = gsap.timeline();
+        tl.fromTo(".element-up", { x: 1000, y: -800, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1 });
+        tl.fromTo(".title1", { y: 100, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1 }, "-=0.2");
+        tl.fromTo(".title2", { y: 120, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 1 });
+
+
+    </script>
+</body>
+
+</html>
