@@ -1,5 +1,7 @@
 package com.example.telefonapp;
 
+import static java.lang.Thread.sleep;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -41,18 +43,34 @@ public class BluetoothScreen extends AppCompatActivity {
         setContentView(R.layout.activity_bluetooth_screen);
         Button buttonSendOne = findViewById(R.id.buttonSendOne);
         Button buttonSendZero = findViewById(R.id.buttonSendZero);
+        Button back = findViewById(R.id.logout1);
+        back.setOnClickListener(v -> {signOut();
+
+        });
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Intent intent = getIntent();
         String time = intent.getStringExtra("time"); // Retrieve the string
         long timeLong = Long.parseLong(time);
 
         handlers.postDelayed(() -> {
+            sendData("0");
+            try {
+                sleep(1001);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
             startActivity(intents);
             finish();
         }, timeLong*1000);
         // This code runs after 15 seconds
         handler.postDelayed(() -> {
+            sendData("0");
+            try {
+                sleep(1001);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
             startActivity(intents);
             finish();
@@ -76,13 +94,22 @@ public class BluetoothScreen extends AppCompatActivity {
         });
         buttonSendZero.setOnClickListener(v -> sendData("0"));
     }
-
+    public void signOut() {
+        sendData("0");
+        try {
+            sleep(1001);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        startActivity(new Intent(BluetoothScreen.this, MainActivity.class));
+        finish(); // Close the LoginActivity
+    }
     private void connectToDevice() {
         BluetoothDevice device = bluetoothAdapter.getRemoteDevice(DEVICE_ADDRESS);
 
         try {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                return;
+              //  return;
             }
 
             bluetoothSocket = device.createRfcommSocketToServiceRecord(UUID_INSECURE);

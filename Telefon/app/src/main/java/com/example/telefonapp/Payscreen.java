@@ -55,6 +55,11 @@ public class Payscreen extends AppCompatActivity {
         });
         EditText amountEditText = findViewById(R.id.amountEditText1);
         Button stripeButton = findViewById(R.id.stripeButton1);
+        Button back = findViewById(R.id.logout2);
+        back.setOnClickListener(v -> {signOut();
+
+                });
+
         stripeButton.setOnClickListener(v -> {
             int value = Integer.parseInt(amountEditText.getText().toString());
             if (value < 40) {
@@ -74,7 +79,11 @@ public class Payscreen extends AppCompatActivity {
         });
         paymentSheet = new PaymentSheet(this, this::onPaymentSheetResult);
     }
+    public void signOut() {
 
+        startActivity(new Intent(Payscreen.this, MainActivity.class));
+        finish(); // Close the LoginActivity
+    }
     void getDetails() {
 
         Fuel.INSTANCE.post("https://us-central1-polihack-2ede7.cloudfunctions.net/helloWorld?amt=" + amount + "&email=" + mAuth.getCurrentUser().getEmail().toString(), null)

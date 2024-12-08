@@ -277,11 +277,14 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+             //   Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             bluetoothSocket = device.createRfcommSocketToServiceRecord(UUID_INSECURE);
             bluetoothSocket.connect();
+            Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+
 
             inputStream = new BufferedInputStream(bluetoothSocket.getInputStream());
             outputStream = bluetoothSocket.getOutputStream();

@@ -42,13 +42,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b78ae2c-9bc0-4915-83f7-a943a2826310" name="Changes" comment="wow">
-      <change afterPath="$PROJECT_DIR$/firebase-debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/BluetoothScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/BluetoothScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/Payscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/telefonapp/Payscreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_bluetooth_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_bluetooth_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_payscreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_payscreen.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
