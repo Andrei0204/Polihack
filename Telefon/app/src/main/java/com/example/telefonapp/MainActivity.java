@@ -57,6 +57,7 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+
 import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.paymentsheet.PaymentSheet;
 import com.stripe.android.paymentsheet.PaymentSheetResult;
@@ -72,6 +73,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
 import com.stripe.android.PaymentConfiguration;
 // Add the following lines to build.gradle to use this example's networking library:
 //   implementation 'com.github.kittinunf.fuel:fuel:2.3.1'
@@ -81,6 +83,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.github.kittinunf.fuel.Fuel;
 import com.github.kittinunf.fuel.core.FuelError;
 import com.github.kittinunf.fuel.core.Handler;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     Button stripeButton;
     EditText amountEditText;
     PaymentSheet paymentSheet;
-    String paymentIntentClientSecret,amount;
+    String paymentIntentClientSecret, amount;
     PaymentSheet.CustomerConfiguration customerConfig;
     FirebaseFirestore db;
 
@@ -114,29 +117,35 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        if(mAuth.getCurrentUser()==null) {
+        if (mAuth.getCurrentUser() == null) {
 
 
             setContentView(R.layout.activity_main);
             EditText emailField = findViewById(R.id.emailField);
             EditText passwordField = findViewById(R.id.passwordField);
+            EditText numarinm = findViewById(R.id.numarinmatriculareField);
             Button signUpButton = findViewById(R.id.signUpButton);
             Button signInButton = findViewById(R.id.signInButton);
-
-            signUpButton.setOnClickListener(v -> {
-                String email = emailField.getText().toString();
-                String password = passwordField.getText().toString();
-                signUp(email, password);
-            });
 
             signInButton.setOnClickListener(v -> {
                 String email = emailField.getText().toString();
                 String password = passwordField.getText().toString();
                 signIn(email, password);
             });
+            signInButton.setOnClickListener(v -> {
+                String email = emailField.getText().toString();
+                String password = passwordField.getText().toString();
+                signIn(email, password);
+            });
+            signUpButton.setOnClickListener(v -> {
+                String email = emailField.getText().toString();
+                String password = passwordField.getText().toString();
+                String inm = numarinm.getText().toString();
+                signUp(email, password, inm);
+            });
 
-        }
-        else{
+
+        } else {
             startActivity(new Intent(MainActivity.this, SecondActivity.class));
             finish(); // Close the LoginActivity
         }
@@ -157,13 +166,15 @@ public class MainActivity extends AppCompatActivity {
 //        // Set button click listeners
 //        buttonSendOne.setOnClickListener(v -> sendData("1"));
 //        buttonSendZero.setOnClickListener(v -> sendData("0"));
-    } void getDetails(){
+    }
 
-        Fuel.INSTANCE.post("https://us-central1-polihack-2ede7.cloudfunctions.net/helloWorld?amt=" +amount+"&email="+mAuth.getCurrentUser().getEmail().toString(),null)
+    void getDetails() {
+
+        Fuel.INSTANCE.post("https://us-central1-polihack-2ede7.cloudfunctions.net/helloWorld?amt=" + amount + "&email=" + mAuth.getCurrentUser().getEmail().toString(), null)
                 .responseString(new Handler<String>() {
                     @Override
                     public void success(String s) {
-                        try{
+                        try {
                             JSONObject result = new JSONObject(s);
                             customerConfig = new PaymentSheet.CustomerConfiguration(
                                     result.getString("customer"),
@@ -177,8 +188,8 @@ public class MainActivity extends AppCompatActivity {
                                     showStripePaymentSheet();
                                 }
                             });
-                        }catch (JSONException e){
-                            Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -189,7 +200,8 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
-    void showStripePaymentSheet(){
+
+    void showStripePaymentSheet() {
         final PaymentSheet.Configuration configuration = new PaymentSheet.Configuration.Builder("CoDer")
                 .customer(customerConfig)
                 .allowsDelayedPaymentMethods(true)
@@ -200,13 +212,14 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
     void onPaymentSheetResult(
             final PaymentSheetResult paymentSheetResult
     ) {
         if (paymentSheetResult instanceof PaymentSheetResult.Canceled) {
             Toast.makeText(this, "Payment canceled!", Toast.LENGTH_SHORT).show();
         } else if (paymentSheetResult instanceof PaymentSheetResult.Failed) {
-            Toast.makeText(this,((PaymentSheetResult.Failed) paymentSheetResult).getError().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ((PaymentSheetResult.Failed) paymentSheetResult).getError().toString(), Toast.LENGTH_SHORT).show();
         } else if (paymentSheetResult instanceof PaymentSheetResult.Completed) {
             Toast.makeText(this, "Payment complete!", Toast.LENGTH_SHORT).show();
         }
@@ -226,13 +239,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void signUp(String email, String password) {
+    public void signUp(String email, String password, String numarinmatriculare) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show();
-                        saveUserToFirestore(user.getUid(), "User Name", email);
+                        saveUserToFirestore(user.getUid(), "User Name", email, numarinmatriculare);
                         startActivity(new Intent(MainActivity.this, SecondActivity.class));
                         finish(); // Close the LoginActivity
                     } else {
@@ -240,18 +253,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void saveUserToFirestore(String userId, String userName, String userEmail) {
+
+    private void saveUserToFirestore(String userId, String userName, String userEmail, String numarinmatriculare) {
         Map<String, Object> user = new HashMap<>();
         user.put("userName", userName);
         user.put("userEmail", userEmail);
-        user.put("Tokens", 0);
-        user.put("Dizabilitati", 0);
+        user.put("nrinmatriculare", numarinmatriculare);
 
         db.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(aVoid -> Toast.makeText(MainActivity.this, "User data saved", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(MainActivity.this, "Error saving user data", Toast.LENGTH_SHORT).show());
     }
+
     public void signOut() {
         mAuth.signOut();
         Toast.makeText(this, "Signed out successfully", Toast.LENGTH_SHORT).show();

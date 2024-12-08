@@ -35,7 +35,8 @@ public class Payscreen extends AppCompatActivity {
     PaymentSheet paymentSheet;
     String paymentIntentClientSecret, amount;
     PaymentSheet.CustomerConfiguration customerConfig;
-
+    double pricePerHourDouble;
+    String amountText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +63,8 @@ public class Payscreen extends AppCompatActivity {
             else if (TextUtils.isEmpty(amountEditText.getText().toString())) {
                 Toast.makeText(this, "Amount cannot be empty ", Toast.LENGTH_SHORT).show();
             } else {
-                String amountText = amountEditText.getText().toString();  // Get text from EditText
-                double pricePerHourDouble = Double.parseDouble(priceperhour);
+                amountText = amountEditText.getText().toString();  // Get text from EditText
+                pricePerHourDouble = Double.parseDouble(priceperhour);
                 double amounts = Double.parseDouble(amountText);
                 double result = (pricePerHourDouble / 60) * amounts;
                 String resultString = String.valueOf(result);
@@ -127,8 +128,10 @@ public class Payscreen extends AppCompatActivity {
         } else if (paymentSheetResult instanceof PaymentSheetResult.Failed) {
             Toast.makeText(this, ((PaymentSheetResult.Failed) paymentSheetResult).getError().toString(), Toast.LENGTH_SHORT).show();
         } else if (paymentSheetResult instanceof PaymentSheetResult.Completed) {
-            Toast.makeText(this, "Payment completez!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(Payscreen.this,BluetoothScreen.class));
+            Toast.makeText(this, "Payment completed!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Payscreen.this, BluetoothScreen.class);
+            intent.putExtra("time", amountText); // Add
+            startActivity(intent);
             finish();
         }
     }

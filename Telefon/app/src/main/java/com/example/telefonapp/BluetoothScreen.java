@@ -3,8 +3,10 @@ package com.example.telefonapp;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class BluetoothScreen extends AppCompatActivity {
     private final UUID UUID_INSECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private InputStream inputStream;
     private OutputStream outputStream;
+    private Handler handler = new Handler();
+    private Handler handlers = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,21 @@ public class BluetoothScreen extends AppCompatActivity {
         Button buttonSendOne = findViewById(R.id.buttonSendOne);
         Button buttonSendZero = findViewById(R.id.buttonSendZero);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        Intent intent = getIntent();
+        String time = intent.getStringExtra("time"); // Retrieve the string
+        long timeLong = Long.parseLong(time);
 
+        handlers.postDelayed(() -> {
+            Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
+            startActivity(intents);
+            finish();
+        }, timeLong*1000);
+        // This code runs after 15 seconds
+        handler.postDelayed(() -> {
+            Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
+            startActivity(intents);
+            finish();
+        }, 15000);
         if (bluetoothAdapter == null) {
             Toast.makeText(this, "Bluetooth not supported", Toast.LENGTH_SHORT).show();
             finish();
@@ -52,9 +70,13 @@ public class BluetoothScreen extends AppCompatActivity {
         connectToDevice();
 
         // Set button click listeners
-        buttonSendOne.setOnClickListener(v -> sendData("1"));
+        buttonSendOne.setOnClickListener(v -> {
+            handler.removeCallbacksAndMessages(null);  // Cancel pending tasks
+            sendData("1");
+        });
         buttonSendZero.setOnClickListener(v -> sendData("0"));
     }
+
     private void connectToDevice() {
         BluetoothDevice device = bluetoothAdapter.getRemoteDevice(DEVICE_ADDRESS);
 
@@ -84,7 +106,7 @@ public class BluetoothScreen extends AppCompatActivity {
 
                             runOnUiThread(() -> {
                                 // Display received data in the TextView
-                               // textView.setText(dataBuilder.toString());
+                                // textView.setText(dataBuilder.toString());
                             });
                         }
                     } catch (Exception e) {
