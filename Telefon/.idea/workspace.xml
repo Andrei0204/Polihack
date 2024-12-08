@@ -42,7 +42,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b78ae2c-9bc0-4915-83f7-a943a2826310" name="Changes" comment="e gg.">
-      <change beforePath="$PROJECT_DIR$/RGBBluetooth (Full android)/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AppWeb/Site_SpotHero/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=qk5xcebqjnu4uk7h)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\alexa\.android\avd\Pixel_7a_API_35.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
