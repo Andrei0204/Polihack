@@ -59,6 +59,8 @@ public class BluetoothScreen extends AppCompatActivity {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            handler.removeCallbacksAndMessages(null);  // Cancel pending tasks
+
             Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
             startActivity(intents);
             finish();
@@ -71,6 +73,8 @@ public class BluetoothScreen extends AppCompatActivity {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            handlers.removeCallbacksAndMessages(null);  // Cancel pending tasks
+
             Intent intents = new Intent(BluetoothScreen.this, MainActivity.class);
             startActivity(intents);
             finish();
@@ -94,6 +98,7 @@ public class BluetoothScreen extends AppCompatActivity {
         });
         buttonSendZero.setOnClickListener(v -> sendData("0"));
     }
+
     public void signOut() {
         sendData("0");
         try {
@@ -101,6 +106,9 @@ public class BluetoothScreen extends AppCompatActivity {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        handler.removeCallbacksAndMessages(null);  // Cancel pending tasks
+        handlers.removeCallbacksAndMessages(null);  // Cancel pending tasks
+
         startActivity(new Intent(BluetoothScreen.this, MainActivity.class));
         finish(); // Close the LoginActivity
     }

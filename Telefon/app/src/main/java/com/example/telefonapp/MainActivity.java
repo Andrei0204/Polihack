@@ -133,15 +133,23 @@ public class MainActivity extends AppCompatActivity {
                 signIn(email, password);
             });
             signInButton.setOnClickListener(v -> {
-                String email = emailField.getText().toString();
-                String password = passwordField.getText().toString();
-                signIn(email, password);
+                if (TextUtils.isEmpty(emailField.getText().toString()) ||TextUtils.isEmpty(passwordField.getText().toString())) {
+                    Toast.makeText(this, "Completeazaa email si parola", Toast.LENGTH_SHORT).show();
+                } else {
+                    String email = emailField.getText().toString();
+                    String password = passwordField.getText().toString();
+                    signIn(email, password);
+                }
             });
             signUpButton.setOnClickListener(v -> {
-                String email = emailField.getText().toString();
-                String password = passwordField.getText().toString();
-                String inm = numarinm.getText().toString();
-                signUp(email, password, inm);
+                if (TextUtils.isEmpty(emailField.getText().toString()) ||TextUtils.isEmpty(passwordField.getText().toString()) ||TextUtils.isEmpty(numarinm.getText().toString())) {
+                    Toast.makeText(this, "Completeaza toate campurile", Toast.LENGTH_SHORT).show();
+                } else {
+                    String email = emailField.getText().toString();
+                    String password = passwordField.getText().toString();
+                    String inm = numarinm.getText().toString();
+                    signUp(email, password, inm);
+                }
             });
 
 
@@ -277,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-             //   Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
                 return;
             }
 

@@ -112,6 +112,7 @@ public class PayActivity extends AppCompatActivity {
                                     // Add Rezerved status to displayData
                                     displayData.append("Rezerved Value: ").append(rezervedValue).append("\n");
                                     if(rezervedValue==0) {
+                                        Toast.makeText(PayActivity.this, "Loc Rezervat", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(PayActivity.this, SecondActivity.class));
                                     }
 
